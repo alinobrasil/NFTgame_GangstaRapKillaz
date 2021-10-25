@@ -19,7 +19,7 @@ const Arena = ({ characterNFT, setCharacterNFT }) => {
      */
     const [boss, setBoss] = useState(null);
 
-    const [showToast, setShowToast] = useState(false);
+    const [showToast, setShowToast] = useState('');
 
     const [attackState, setAttackState] = useState('');
 
@@ -33,9 +33,9 @@ const Arena = ({ characterNFT, setCharacterNFT }) => {
                 console.log('attackTxn:', attackTxn);
                 setAttackState('hit');
 
-                setShowToast(true);
+                setShowToast('show');
                 setTimeout(() => {
-                    setShowToast(false);
+                    setShowToast('hide');
                 }, 5000);
 
             }
@@ -106,7 +106,7 @@ const Arena = ({ characterNFT, setCharacterNFT }) => {
 
 
             {boss && (
-                <div id="toast" className="show">
+                <div id="toast" className="{showToast}">
                     <div id="desc">{`💥 ${boss.name} was hit for ${characterNFT.attackDamage}!`}</div>
                 </div>
             )}

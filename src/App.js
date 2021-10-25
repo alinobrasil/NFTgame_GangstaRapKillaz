@@ -30,6 +30,8 @@ const App = () => {
    */
   const checkIfWalletIsConnected = async () => {
     try {
+      setIsLoading(false);
+
       const { ethereum } = window;
 
       if (!ethereum) {
